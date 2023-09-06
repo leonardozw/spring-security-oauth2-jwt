@@ -17,7 +17,12 @@ public class SecurityDemoApplication {
 }
 
 @RestController
-class HelloController {
+class HomeController {
+
+	@GetMapping("/")
+	public String publicHello() {
+		return "<h1>Hello Public World!</h1>";
+	}
 
 	@GetMapping("/cookie")
 	public String privateCookie(@AuthenticationPrincipal OidcUser principal) {
